@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Student List</title>
+</head>
+<body>
+<div align="center">
+    <h1>Student List</h1>
+    <a href="new">Add New Student</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listProducts}">
+            	<td th:text="${product.id}">ID</td>
+                <td th:text="${product.name}">Name</td>
+                <td th:text="${product.email}">Email</td>
+                <td th:text="${product.course}">Course</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>
