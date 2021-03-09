@@ -21,15 +21,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="product : ${listProducts}">
-            	<td th:text="${product.id}">ID</td>
-                <td th:text="${product.name}">Name</td>
-                <td th:text="${product.email}">Email</td>
-                <td th:text="${product.course}">Course</td>
+            <tr th:each="student : ${listStudents}">
+            	<td th:text="${student.id}">ID</td>
+                <td th:text="${student.name}">Name</td>
+                <td th:text="${student.email}">Email</td>
+                <td th:text="${student.course}">Course</td>
                 <td>
-                	<a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+                	<a th:href="@{'/edit/' + ${student.id}}">Edit</a>
                 	&nbsp;&nbsp;&nbsp;
-                	<a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+                	<a th:href="@{'/delete/' + ${student.id}}">Delete</a>
                 </td>
             </tr>
         </tbody>
