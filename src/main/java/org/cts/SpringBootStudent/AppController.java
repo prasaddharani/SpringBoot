@@ -37,10 +37,7 @@ public class AppController {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveProduct(@Valid @ModelAttribute("student") Student student,BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-			return "new_student";
-		}
+	public String saveProduct(@ModelAttribute("student") Student student) {
 		
 		service.save(student);
 		
