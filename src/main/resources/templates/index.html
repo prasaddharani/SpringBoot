@@ -3,33 +3,37 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8"/>
-<title>Student List</title>
+<title th:utext="#{student.list}"></title>
 </head>
 <body>
 <div align="center">
-    <h1>Student List</h1>
-    <a href="new">Add New Student</a>
+		  
+		 <a th:href="@{./?lang=en}">English</a>
+         &nbsp;|&nbsp;
+         <a th:href="@{./?lang=fr}">Française</a>
+    <h1 th:utext="#{student.list}"></h1>
+    <a href="new" th:utext="#{student.add}"></a>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Course</th>
-                <th colspan="2">Action</th>
+                <td><strong th:utext="#{student.id}"></strong></td>
+                <td><strong th:utext="#{student.name}"></strong></td>
+                <td><strong th:utext="#{student.email}"></strong></td>
+                <td><strong th:utext="#{student.course}"></strong></td>
+                <th colspan="2"><p th:utext="#{student.action}"></p></th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="student : ${listStudents}">
-            	<td th:text="${student.id}">ID</td>
-                <td th:text="${student.name}">Name</td>
-                <td th:text="${student.email}">Email</td>
-                <td th:text="${student.course}">Course</td>
+            	<td th:text="${student.id}"><strong th:utext="#{student.id}"></strong></td>
+                <td th:text="${student.name}"><strong th:utext="#{student.name}"></strong></td>
+                <td th:text="${student.email}"><strong th:utext="#{student.email}"></strong></td>
+                <td th:text="${student.course}"><strong th:utext="#{student.course}"></strong></td>
                 <td>
-                	<a th:href="@{'/edit/' + ${student.id}}">Edit</a>
+                	<a th:href="@{'/edit/' + ${student.id}}" th:utext="#{student.edit}"></a>
                 	&nbsp;&nbsp;&nbsp;
-                	<a th:href="@{'/delete/' + ${student.id}}">Delete</a>
+                	<a th:href="@{'/delete/' + ${student.id}}" th:utext="#{student.delete}"></a>
                 </td>
             </tr>
         </tbody>
